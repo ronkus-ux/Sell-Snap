@@ -1,0 +1,175 @@
+.page {
+  padding: 24px 16px;
+  max-width: none;
+}
+
+@media (min-width: 768px) {
+  .page {
+    padding: 32px 32px;
+  }
+}
+
+.pageHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.title {
+  font-family: var(--font-title-title-large-font-family);
+  font-size: clamp(20px, 4.5vw, 22px);
+  font-weight: var(--font-title-title-large-font-weight);
+  color: var(--color-on-surface-color);
+  letter-spacing: var(--font-title-title-large-letter-spacing);
+  line-height: var(--font-title-title-large-line-height);
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-family: var(--font-body-body-medium-font-family);
+  font-size: clamp(12px, 3vw, 14px);
+  color: var(--color-on-surface-variant-color);
+}
+
+.newBtn {
+  display: inline-flex;
+  align-items: center;
+  height: 44px;
+  padding: 0 16px;
+  background-color: var(--color-primary-color);
+  color: var(--color-on-primary-color);
+  font-family: var(--font-body-body-xsmall-font-family);
+  font-size: var(--font-body-body-xsmall-font-size);
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.15s ease;
+}
+
+.newBtn:hover {
+  opacity: 0.88;
+  text-decoration: none;
+}
+
+/* ─── Stats Grid ───────────────────────────────── */
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 1024px) {
+  .statsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.statCard {
+  background-color: var(--color-surface-container-lowest-color);
+  border: 1px solid var(--color-outline-variant-color);
+  border-radius: 12px;
+  padding: 28px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.statLabel {
+  font-family: var(--font-body-body-small-font-family);
+  font-size: var(--font-body-body-small-font-size);
+  font-weight: 600;
+  color: var(--color-on-surface-variant-color);
+  margin-bottom: 2px;
+  text-transform: uppercase;
+}
+
+.statValue {
+  font-family: var(--font-headline-headline-small-font-family);
+  font-size: var(--font-headline-headline-small-font-size);
+  font-weight: 700;
+  color: var(--color-on-surface-color);
+  letter-spacing: var(--font-headline-headline-small-letter-spacing);
+  text-transform: uppercase;
+}
+
+/* ─── Quick Actions ────────────────────────────── */
+.sectionTitle {
+  font-family: var(--font-title-title-large-font-family);
+  font-size: clamp(20px, 4.5vw, 22px);
+  font-weight: var(--font-title-title-large-font-weight);
+  font-style: var(--font-title-title-large-font-style);
+  line-height: var(--font-title-title-large-line-height);
+  letter-spacing: var(--font-title-title-large-letter-spacing);
+  color: var(--color-on-surface-variant-color);
+  margin-bottom: 12px;
+}
+
+.quickActions {
+  margin-top: 32px;
+}
+
+.actionCards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 1024px) {
+  .actionCards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.actionCard {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background-color: var(--color-surface-container-lowest-color);
+  border: 1px solid var(--color-outline-variant-color);
+  border-radius: 12px;
+  text-decoration: none;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.actionCard:hover {
+  border-color: var(--color-primary-color);
+  background-color: color-mix(in srgb, var(--color-primary-color) 4%, transparent);
+  text-decoration: none;
+}
+
+.actionIcon {
+  color: var(--color-on-surface-variant-color);
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-surface-container-color);
+  border-radius: 8px;
+}
+
+.actionTitle {
+  font-family: var(--font-title-title-small-font-family);
+  font-size: var(--font-title-title-small-font-size);
+  font-weight: 600;
+  text-transform: capitalize;
+  color: var(--color-on-surface-color);
+  margin-bottom: 2px;
+}
+
+.actionDesc {
+  font-family: var(--font-body-body-small-font-family);
+  font-size: var(--font-body-body-small-font-size);
+  color: var(--color-on-surface-variant-color);
+}
+
+/* ─── Recent Orders ───────────────────────────── */
+.recentOrders {
+  margin-top: 32px;
+}

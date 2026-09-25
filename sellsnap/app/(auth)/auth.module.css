@@ -1,0 +1,39 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-background-color);
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 12px;
+}
+
+@media (min-width: 768px) {
+  .main {
+    padding: 24px;
+  }
+}
+
+.logoContainer {
+  margin-bottom: 4px;
+}
+
+.logo {
+  font-family: var(--font-headline-headline-small-font-family);
+  font-size: var(--font-headline-headline-small-font-size);
+  font-weight: 700;
+  color: var(--color-primary-color);
+  letter-spacing: -0.03em;
+  text-decoration: none;
+}
+
+.logo:hover {
+  text-decoration: none;
+  opacity: 0.85;
+}

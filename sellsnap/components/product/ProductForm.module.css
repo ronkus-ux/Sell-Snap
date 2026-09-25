@@ -1,0 +1,230 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.errorBanner {
+  background-color: hsl(0, 100%, 96%);
+  border: 1px solid hsl(0, 70%, 85%);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-family: var(--font-body-body-medium-font-family);
+  font-size: var(--font-body-body-medium-font-size);
+  color: hsl(0, 60%, 35%);
+}
+
+/* ─── Layout grid ───────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+}
+
+.leftCol,
+.rightCol {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (min-width: 1024px) {
+  .leftCol,
+  .rightCol {
+    gap: 24px;
+  }
+}
+
+/* ─── Cards ─────────────────────────────────── */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  background-color: var(--color-surface-container-lowest-color);
+  border: 1px solid var(--color-outline-variant-color);
+  border-radius: 12px;
+}
+
+.cardTitle {
+  font-family: var(--font-body-body-xsmall-font-family);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: var(--font-label-label-large-line-height);
+  color: var(--color-on-surface-color);
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ─── Image Upload ──────────────────────────── */
+.imageDropzone {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  border: 2px dashed var(--color-outline-color);
+  border-radius: 12px;
+  background-color: var(--color-surface-container-low-color);
+  cursor: pointer;
+  overflow: hidden;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.imageDropzone:hover,
+.imageDropzone:focus-visible {
+  border-color: var(--color-primary-color);
+  background-color: color-mix(in srgb, var(--color-primary-color) 4%, transparent);
+  outline: none;
+}
+
+.previewImage {
+  object-fit: cover;
+}
+
+.dropzonePlaceholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 12px;
+}
+
+.uploadIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: var(--color-primary-container-color);
+  color: var(--color-on-primary-container-color);
+}
+
+.uploadText {
+  font-family: var(--font-body-body-xsmall-font-family);
+  font-size: var(--font-body-body-xsmall-font-size);
+  font-weight: 500;
+  color: var(--color-on-surface-color);
+}
+
+.uploadHint {
+  font-family: var(--font-label-label-small-font-family);
+  font-size: var(--font-label-label-small-font-size);
+  font-weight: var(--font-label-label-small-font-weight);
+  line-height: var(--font-label-label-small-line-height);
+  color: var(--color-on-surface-variant-color);
+  white-space: nowrap;
+  margin-top: -8px;
+}
+
+.hiddenInput {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ─── Textarea ──────────────────────────────── */
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.textareaLabel {
+  font-family: var(--font-body-body-xsmall-font-family);
+  font-size: var(--font-body-body-xsmall-font-size);
+  font-weight: 600;
+  line-height: var(--font-label-label-large-line-height);
+  color: var(--color-on-surface-color);
+}
+
+.textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid var(--color-outline-variant-color);
+  border-radius: 8px;
+  background-color: var(--color-surface-container-lowest-color);
+  color: var(--color-on-surface-color);
+  font-family: var(--font-label-label-large-font-family);
+  font-size: var(--font-label-label-large-font-size);
+  font-weight: var(--font-label-label-large-font-weight);
+  line-height: var(--font-label-label-large-line-height);
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.4s ease;
+  box-sizing: border-box;
+}
+
+.textarea:focus {
+  border-color: var(--color-primary-color);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary-color) 15%, transparent);
+}
+
+.textareaError {
+  border-color: var(--color-error-color);
+}
+
+.textareaError:focus {
+  border-color: var(--color-error-color);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-error-color) 15%, transparent);
+}
+
+.fieldError {
+  font-family: var(--font-body-body-small-font-family);
+  font-size: var(--font-body-body-small-font-size);
+  color: var(--color-error-color);
+  margin: 0;
+}
+
+/* ─── Actions ─────────────────────────────────── */
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.cancelBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--color-outline-variant-color);
+  border-radius: 8px;
+  background-color: var(--color-surface-container-color);
+  color: var(--color-on-surface-color);
+  font-family: var(--font-body-body-xsmall-font-family);
+  font-size: var(--font-body-body-xsmall-font-size);
+  font-weight: 600;
+  line-height: var(--font-body-body-xsmall-line-height);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.15s ease;
+}
+
+.cancelBtn:hover {
+  background-color: var(--color-surface-container-high-color);
+  text-decoration: none;
+}
+
+.submitBtn {
+  width: auto;
+  font-family: var(--font-body-body-xsmall-font-family);
+  font-size: var(--font-body-body-xsmall-font-size);
+  font-weight: 600;
+  letter-spacing: normal;
+}

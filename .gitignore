@@ -1,0 +1,4 @@
+# Local-only files
+.notes/
+.agent/
+desktop.ini

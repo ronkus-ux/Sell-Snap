@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import '../tokens/tokens.css'; /* reload */
+
+/* ─── Reset ──────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ─── Base ───────────────────────────────────────────────── */
+html {
+  min-height: 100dvh;
+  margin: 0;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100dvh;
+  margin: 0;
+  background-color: var(--color-background-color);
+  color: var(--color-on-background-color);
+  font-family: var(--font-body-body-large-font-family);
+  font-size: var(--font-body-body-large-font-size);
+  font-weight: var(--font-body-body-large-font-weight);
+  line-height: var(--font-body-body-large-line-height);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Typography defaults ────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-headline-headline-large-font-family);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-on-surface-color);
+}
+
+a {
+  color: var(--color-primary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+}
+
+input, textarea, select {
+  font-family: inherit;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-outline-color);
+}
+
+/* ─── Utility ─────────────────────────────────────────────── */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* -----------------------------------------------------------------------------
+   Onboarding step transitions (View Transitions API)
+   Enabled via experimental.viewTransition � see app/(onboarding)/onboarding/layout.tsx
+   ----------------------------------------------------------------------------- */
+::view-transition-old(.onboard-step) {
+  animation: 150ms ease-in both onboard-step-out;
+}
+
+::view-transition-new(.onboard-step) {
+  animation: 210ms ease-out 120ms both onboard-step-in;
+}
+
+@keyframes onboard-step-out {
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes onboard-step-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+}

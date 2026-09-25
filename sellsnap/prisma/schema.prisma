@@ -1,0 +1,104 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id                  String               @id @default(cuid())
+  name                String
+  email               String               @unique
+  businessName        String
+  passwordHash        String
+  onboarded           Boolean              @default(false)
+  category            String?
+  phone               String?
+  businessDescription String?
+  createdAt           DateTime             @default(now())
+  products            Product[]
+  passwordResetTokens PasswordResetToken[]
+}
+
+model PasswordResetToken {
+  id        String    @id @default(cuid())
+  userId    String
+  tokenHash String    @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model Product {
+  id          String   @id @default(cuid())
+  userId      String
+  name        String
+  description String
+  price       Int      // stored in kobo (100 kobo = 1 NGN)
+  imageUrl    String
+  uniqueSlug  String   @unique
+  createdAt   DateTime @default(now())
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  orders      Order[]
+}
+
+model Order {
+  id                   String      @id @default(cuid())
+  productId            String
+  buyerEmail           String?
+  buyerName            String?
+  amount               Int         // in kobo
+  status               OrderStatus @default(pending)
+  transactionReference String      @unique
+  createdAt            DateTime    @default(now())
+  product              Product     @relation(fields: [productId], references: [id])
+  payment              Payment?
+  paymentEvents        PaymentEvent[]
+}
+
+enum OrderStatus {
+  pending
+  paid
+  failed
+}
+
+model Payment {
+  id               String    @id @default(cuid())
+  orderId          String    @unique
+  gatewayReference String    @unique  // Flutterwave transaction ID — idempotency guard
+  status           String
+  amountKobo       Int?      // actual amount Flutterwave collected, in kobo (order.amount may differ for overpayments)
+  paidAt           DateTime?
+  order            Order     @relation(fields: [orderId], references: [id])
+}
+
+// Append-only audit trail of every payment-related event (webhook attempts,
+// rejections, verifications). Written for success AND failure – never read
+// for correctness, only for debugging and reporting.
+model PaymentEvent {
+  id               String    @id @default(cuid())
+  orderId          String?
+  txRef            String?
+  gatewayReference String?
+  event            String    // e.g. webhook.invalid-hash, webhook.verified, webhook.order-paid
+  hashOk           Boolean?
+  status           String?   // Flutterwave event/transaction status when known
+  currency         String?
+  amountPaidKobo   Int?
+  detail           String?   // human-readable summary of the outcome
+  processed        Boolean   @default(true)
+  createdAt        DateTime  @default(now())
+  order            Order?    @relation(fields: [orderId], references: [id])
+
+  @@index([orderId])
+  @@index([createdAt])
+}

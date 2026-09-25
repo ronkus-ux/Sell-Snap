@@ -1,0 +1,79 @@
+.page {
+  padding: 24px 16px;
+  max-width: none;
+}
+
+@media (min-width: 768px) {
+  .page {
+    padding: 32px;
+  }
+}
+
+.pageHeader {
+  margin-bottom: 28px;
+}
+
+.title {
+  font-family: var(--font-title-title-large-font-family);
+  font-size: clamp(20px, 4.5vw, 22px);
+  font-weight: var(--font-title-title-large-font-weight);
+  color: var(--color-on-surface-color);
+  letter-spacing: var(--font-title-title-large-letter-spacing);
+  line-height: var(--font-title-title-large-line-height);
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-family: var(--font-body-body-medium-font-family);
+  font-size: clamp(12px, 3vw, 14px);
+  color: var(--color-on-surface-variant-color);
+}
+
+.section {
+  background-color: var(--color-surface-container-lowest-color);
+  border: 1px solid var(--color-outline-variant-color);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.sectionTitle {
+  font-family: var(--font-title-title-large-font-family);
+  font-size: var(--font-title-title-large-font-size);
+  font-weight: var(--font-title-title-large-font-weight);
+  color: var(--color-on-surface-color);
+  margin-bottom: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.saveBtn {
+  align-self: flex-start;
+  margin-top: 8px;
+}
+
+.errorBanner {
+  background-color: hsl(0, 100%, 96%);
+  border: 1px solid hsl(0, 70%, 85%);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-family: var(--font-body-body-medium-font-family);
+  font-size: var(--font-body-body-medium-font-size);
+  color: hsl(0, 60%, 35%);
+  margin-bottom: 16px;
+}
+
+.successBanner {
+  background-color: color-mix(in srgb, var(--color-primary-color) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-primary-color) 30%, transparent);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-family: var(--font-body-body-medium-font-family);
+  font-size: var(--font-body-body-medium-font-size);
+  color: hsl(154, 80%, 25%);
+  margin-bottom: 16px;
+}

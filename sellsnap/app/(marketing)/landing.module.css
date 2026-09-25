@@ -1,0 +1,128 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-background-color);
+  padding: 32px 24px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 640px;
+  width: 100%;
+}
+
+.logo {
+  font-family: var(--font-headline-headline-large-font-family);
+  /* Fluid size: 32px on small screens up to 36px from tablet width up. */
+  font-size: clamp(32px, 4.6vw, 36px);
+  font-weight: 700;
+  color: var(--color-primary-color);
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 768px) {
+  .logo {
+    margin-bottom: 32px;
+  }
+}
+
+.headline {
+  font-family: var(--font-display-display-medium-font-family);
+  /* Fluid size that guarantees both lines fit on one line each at every
+     viewport width: 22px on ~320px screens up to 54px on desktop. */
+  font-size: clamp(22px, 6.5vw, 54px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+  color: var(--color-on-background-color);
+  margin-bottom: 12px;
+}
+
+@media (min-width: 768px) {
+  .headline {
+    margin-bottom: 12px;
+  }
+}
+
+.headlineLine {
+  display: block;
+}
+
+.subline {
+  font-family: var(--font-body-body-medium-font-family);
+  font-size: var(--font-body-body-medium-font-size);
+  line-height: 1.5;
+  color: var(--color-on-surface-variant-color);
+  /* Mirrors the headline's fluid width (10em of clamp(22px, 6.5vw, 54px)),
+     so the subline never covers more horizontal space than the display text. */
+  max-width: min(65vw, 540px);
+  margin-bottom: 32px;
+}
+
+@media (min-width: 768px) {
+  .subline {
+    font-size: var(--font-body-body-large-font-size);
+    margin-bottom: 40px;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.primaryCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 24px;
+  background-color: var(--color-primary-color);
+  color: var(--color-on-primary-color);
+  font-family: var(--font-label-label-large-font-family);
+  font-size: var(--font-label-label-large-font-size);
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: opacity 0.15s ease, transform 0.1s ease;
+  min-width: 120px;
+}
+
+.primaryCta:hover {
+  opacity: 0.9;
+  text-decoration: none;
+}
+
+.secondaryCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 24px;
+  background-color: var(--color-surface-container-lowest-color);
+  border: 1px solid var(--color-outline-color);
+  color: var(--color-on-surface-color);
+  font-family: var(--font-label-label-large-font-family);
+  font-size: var(--font-label-label-large-font-size);
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+  min-width: 120px;
+}
+
+.secondaryCta:hover {
+  background-color: var(--color-surface-container-low-color);
+  border-color: var(--color-on-surface-variant-color);
+  text-decoration: none;
+}

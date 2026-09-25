@@ -1,0 +1,122 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: var(--font-label-label-large-font-family);
+  font-weight: var(--font-label-label-large-font-weight);
+  letter-spacing: var(--font-label-label-large-letter-spacing);
+  transition: opacity 0.15s ease, transform 0.1s ease, background-color 0.15s ease;
+  text-decoration: none;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--color-primary-color);
+  outline-offset: 2px;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+/* Variants */
+.primary {
+  background-color: var(--color-primary-color);
+  color: var(--color-on-primary-color);
+}
+
+.primary:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.secondary {
+  background-color: var(--color-surface-container-color);
+  color: var(--color-on-surface-color);
+  border: 1px solid var(--color-outline-variant-color);
+}
+
+.secondary:hover:not(:disabled) {
+  background-color: var(--color-surface-container-high-color);
+}
+
+.ghost {
+  background-color: transparent;
+  color: var(--color-on-surface-color);
+}
+
+.ghost:hover:not(:disabled) {
+  background-color: var(--color-surface-container-low-color);
+}
+
+.danger {
+  background-color: var(--color-error-color);
+  color: #fff;
+}
+
+.danger:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+/* Sizes */
+.sm {
+  height: 36px;
+  padding: 0 12px;
+  font-size: var(--font-label-label-medium-font-size);
+  line-height: var(--font-label-label-medium-line-height);
+}
+
+.md {
+  height: 44px;
+  padding: 0 16px;
+  font-size: var(--font-label-label-large-font-size);
+  line-height: var(--font-label-label-large-line-height);
+}
+
+.lg {
+  height: 52px;
+  padding: 0 24px;
+  font-size: var(--font-body-body-large-font-size);
+  line-height: var(--font-body-body-large-line-height);
+}
+
+/* Loading state */
+.loading {
+  cursor: wait;
+}
+
+.content {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.loadingText {
+  opacity: 0.7;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

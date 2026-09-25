@@ -1,0 +1,153 @@
+.page {
+  min-height: 100vh;
+  padding: 24px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+  background-color: var(--color-surface-container-lowest-color);
+  border: 1px solid var(--color-outline-variant-color);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+/* ─── Header ─────────────────────────────────── */
+.header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--color-outline-variant-color);
+}
+
+.sellerBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sellerAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--color-primary-color);
+  color: var(--color-on-primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-label-label-large-font-family);
+  font-size: var(--font-label-label-large-font-size);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.sellerName {
+  font-family: var(--font-label-label-large-font-family);
+  font-size: var(--font-label-label-large-font-size);
+  font-weight: 600;
+  color: var(--color-on-surface-color);
+}
+
+/* ─── Split (desktop 2-col) ──────────────────── */
+.split {
+  display: grid;
+  grid-template-columns: 9fr 11fr;
+  align-items: stretch;
+}
+
+/* ─── Image (left) ───────────────────────────── */
+.imageWrapper {
+  position: relative;
+  min-height: 320px;
+  background-color: var(--color-surface-container-color);
+  overflow: hidden;
+  border-bottom-left-radius: 16px;
+}
+
+.image {
+  object-fit: cover;
+}
+
+/* ─── Content (right) ────────────────────────── */
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: 28px 32px 32px;
+  gap: 20px;
+}
+
+.priceRow {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-outline-variant-color);
+}
+
+.productName {
+  font-family: var(--font-title-title-large-font-family);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: var(--font-title-title-large-letter-spacing);
+  color: var(--color-on-surface-color);
+  flex: 1;
+}
+
+.price {
+  font-family: var(--font-title-title-large-font-family);
+  font-size: 24px;
+  font-weight: 800;
+  line-height: var(--font-title-title-large-line-height);
+  letter-spacing: var(--font-title-title-large-letter-spacing);
+  color: var(--color-primary-color);
+  white-space: nowrap;
+}
+
+.descriptionBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.descriptionLabel {
+  font-family: var(--font-body-body-large-font-family);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-on-surface-color);
+}
+
+.description {
+  font-family: var(--font-label-label-medium-font-family);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--color-on-surface-variant-color);
+}
+
+/* ─── Stacked mobile ─────────────────────────── */
+@media (max-width: 768px) {
+  .page {
+    padding: 12px;
+    align-items: flex-start;
+  }
+
+  .split {
+    grid-template-columns: 1fr;
+  }
+
+  .imageWrapper {
+    min-height: 0;
+    aspect-ratio: 1 / 1;
+    border-bottom-left-radius: 0;
+  }
+
+  .content {
+    padding: 20px 20px 24px;
+    gap: 16px;
+  }
+}

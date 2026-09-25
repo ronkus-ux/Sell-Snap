@@ -1,0 +1,30 @@
+.page {
+  padding: 24px 16px;
+  max-width: none;
+}
+
+@media (min-width: 768px) {
+  .page {
+    padding: 32px 32px;
+  }
+}
+
+.header {
+  margin-bottom: 28px;
+}
+
+.title {
+  font-family: var(--font-title-title-large-font-family);
+  font-size: clamp(20px, 4.5vw, 22px);
+  font-weight: var(--font-title-title-large-font-weight);
+  color: var(--color-on-surface-color);
+  letter-spacing: var(--font-title-title-large-letter-spacing);
+  line-height: var(--font-title-title-large-line-height);
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-family: var(--font-body-body-medium-font-family);
+  font-size: clamp(12px, 3vw, 14px);
+  color: var(--color-on-surface-variant-color);
+}

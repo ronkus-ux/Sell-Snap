@@ -1,0 +1,32 @@
+.card {
+  background-color: var(--color-surface-container-lowest-color);
+  border: 1px solid var(--color-outline-variant-color);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.padding-none {
+  padding: 0;
+}
+
+.padding-sm {
+  padding: 12px;
+}
+
+.padding-md {
+  padding: 24px;
+}
+
+.padding-lg {
+  padding: 32px;
+}
+
+@media (min-width: 768px) {
+  .padding-md {
+    padding: 32px;
+  }
+
+  .padding-lg {
+    padding: 48px;
+  }
+}

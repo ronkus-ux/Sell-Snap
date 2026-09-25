@@ -1,0 +1,378 @@
+.orderList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.orderRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 16px;
+  background-color: var(--color-surface-container-lowest-color);
+  border: 1px solid var(--color-outline-variant-color);
+  border-radius: 12px;
+}
+
+.cell {
+  min-width: 0;
+  flex-shrink: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nameCell {
+  flex: 1;
+}
+
+.productName {
+  font-family: var(--font-title-title-small-font-family);
+  font-size: var(--font-title-title-small-font-size);
+  font-weight: var(--font-title-title-small-font-weight);
+  color: var(--color-on-surface-color);
+}
+
+.textCell {
+  font-family: var(--font-body-body-small-font-family);
+  font-size: var(--font-body-body-small-font-size);
+  color: var(--color-on-surface-variant-color);
+}
+
+.dateCell {
+  font-family: var(--font-body-body-small-font-family);
+  font-size: var(--font-body-body-small-font-size);
+  color: var(--color-outline-color);
+}
+
+.amountCell {
+  font-family: var(--font-title-title-small-font-family);
+  font-size: var(--font-title-title-small-font-size);
+  font-weight: 700;
+  color: var(--color-primary-color);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.badgeCell {
+  flex-shrink: 0;
+}
+
+/* More-orders link ("View all orders") */
+.moreLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  gap: 6px;
+  font-family: var(--font-label-label-medium-font-family);
+  font-size: var(--font-label-label-medium-font-size);
+  font-weight: 600;
+  color: var(--color-primary-color);
+  text-decoration: none;
+}
+
+.moreLink:hover {
+  text-decoration: underline;
+}
+
+/* ─── Table variant ───────────────────────────── */
+.table {
+  border: 1px solid var(--color-outline-variant-color);
+  border-radius: 12px;
+  background-color: var(--color-surface-container-lowest-color);
+  overflow: hidden;
+}
+
+.tableHeader,
+.tableRow {
+  display: grid;
+  grid-template-columns: minmax(0, 2.3fr) minmax(0, 0.7fr) minmax(0, 1.3fr) minmax(0, 0.8fr) minmax(0, 1.1fr) 0.9fr;
+  gap: 20px;
+  align-items: center;
+  padding: 16px 16px;
+}
+
+.tableHeader {
+  background-color: var(--color-surface-container-color);
+  border-bottom: 1px solid var(--color-outline-variant-color);
+  font-family: var(--font-body-body-xsmall-font-family);
+  font-size: var(--font-body-body-xsmall-font-size);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--color-on-surface-variant-color);
+}
+
+.tableRow {
+  border-bottom: 1px solid var(--color-outline-variant-color);
+  font-family: var(--font-body-body-small-font-family);
+  font-size: var(--font-body-body-small-font-size);
+  color: var(--color-on-surface-variant-color);
+}
+
+.tableRow:last-child {
+  border-bottom: none;
+}
+
+.tableProduct {
+  font-family: var(--font-title-title-small-font-family);
+  font-size: var(--font-title-title-small-font-size);
+  font-weight: 600;
+  color: var(--color-on-surface-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tableText,
+.tableDate {
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.buyerCell {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  line-height: 1.25;
+}
+
+.buyerName {
+  color: var(--color-on-surface-variant-color);
+  font-weight: 600;
+  min-width: 0;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.buyerEmail {
+  font-family: var(--font-body-body-small-font-family);
+  font-size: var(--font-body-body-xsmall-font-size);
+  color: var(--color-on-surface-variant-color);
+  min-width: 0;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tableDate {
+  color: var(--color-outline-color);
+}
+
+.alignRight {
+  justify-self: end;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.centerText {
+  text-align: center;
+  white-space: nowrap;
+}
+
+.dateHeader {
+  padding-left: 18px;
+}
+
+/* ─── Mobile/tablet card layout ────────────────── */
+@media (max-width: 1023px) {
+  .table {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    overflow: visible;
+  }
+
+  .tableHeader {
+    display: none;
+  }
+
+  .tableRow {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 6px 12px;
+    align-items: center;
+    padding: 14px 16px;
+    background-color: var(--color-surface-container-lowest-color);
+    border: 1px solid var(--color-outline-variant-color);
+    border-bottom: 1px solid var(--color-outline-variant-color);
+    border-radius: 12px;
+  }
+
+  .tableRow:last-child {
+    border-bottom: 1px solid var(--color-outline-variant-color);
+  }
+
+  .tableText {
+    grid-column: 2;
+    grid-row: 3;
+    justify-self: end;
+    text-align: right;
+    font-family: var(--font-body-body-xsmall-font-family);
+    font-size: 12px;
+    color: var(--color-outline-color);
+    max-width: 100%;
+  }
+
+  .tableProduct {
+    grid-column: 1;
+    grid-row: 1;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+  }
+
+  .badgeCell {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .tableDate.alignRight {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: start;
+    text-align: left;
+  }
+
+  .amountCell {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .buyerCell {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .alignRight {
+    justify-self: end;
+  }
+
+  /* Recent Orders widget rows → card layout (same as table cards) */
+  .orderRow {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 6px 12px;
+    align-items: center;
+    padding: 14px 16px;
+    background-color: var(--color-surface-container-lowest-color);
+    border: 1px solid var(--color-outline-variant-color);
+    border-radius: 12px;
+  }
+
+  .orderRow:last-child {
+    border-bottom: 1px solid var(--color-outline-variant-color);
+  }
+
+  .nameCell {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .nameCell .productName {
+    white-space: normal;
+    overflow-wrap: anywhere;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+  }
+
+  .badgeCell {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .dateCell {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .amountCell {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .orderList {
+    gap: 10px;
+  }
+
+  .productName {
+    font-weight: 600;
+  }
+}
+
+/* Empty state */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 64px 24px;
+  background-color: var(--color-surface-container-lowest-color);
+  border: 1.5px dashed var(--color-outline-variant-color);
+  border-radius: 12px;
+}
+
+.emptyIcon {
+  color: var(--color-on-surface-variant-color);
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-surface-container-color);
+  margin-bottom: 16px;
+}
+
+.emptyTitle {
+  font-family: var(--font-title-title-small-font-family);
+  font-size: var(--font-title-title-small-font-size);
+  font-weight: 600;
+  color: var(--color-on-surface-color);
+  margin-bottom: 8px;
+}
+
+.emptyText {
+  font-family: var(--font-body-body-small-font-family);
+  font-size: var(--font-body-body-small-font-size);
+  line-height: 20px;
+  color: var(--color-on-surface-variant-color);
+  max-width: 320px;
+  margin-bottom: 24px;
+}
+
+.emptyBtn {
+  display: inline-flex;
+  align-items: center;
+  height: 44px;
+  padding: 0 24px;
+  background-color: var(--color-primary-color);
+  color: var(--color-on-primary-color);
+  font-family: var(--font-body-body-xsmall-font-family);
+  font-size: var(--font-body-body-xsmall-font-size);
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+
+.emptyBtn:hover {
+  opacity: 0.88;
+  text-decoration: none;
+}
